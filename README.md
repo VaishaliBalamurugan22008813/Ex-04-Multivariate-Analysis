@@ -31,11 +31,11 @@ Find the pairwise correlation of all columns in the dataframe.corr()
 STEP 8
 
 Save the final data set into the file
+
 PROGRAM
-
-Name : VAISHALI BALAMURUGAN
-Register Number : 212222230164
-
+```
+#Name : VAISHALI BALAMURUGAN
+#Register Number : 212222230164
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -75,5 +75,5 @@ plt.show()
 sns.barplot(df['Sales'],df['Ship Mode'],hue=df['Region'])
 df.corr()
 sns.heatmap(df.corr(),annot=True)
-
+```
 OUTPUT:
