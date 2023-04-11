@@ -3,9 +3,12 @@ Ex-04-Multivariate-Analysis
 AIM
 
 To perform Multivariate EDA on the given data set.
-Explanation:
+
+EXPLANATION:
+
 
 Exploratory data analysis is used to understand the messages within a dataset. This technique involves many iterative processes to ensure that the cleaned data is further sorted to better understand the useful meaning.The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
+
 ALGORITHM:
 STEP 1
 
@@ -36,44 +39,65 @@ PROGRAM
 ```
 #Name : VAISHALI BALAMURUGAN
 #Register Number : 212222230164
+
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-df=pd.read_csv("SuperStore.csv")
-df
-df.info()
-df.describe()
-df.isnull().sum()
-df['Postal Code'] = df["Postal Code"].fillna(df['Postal Code'].mode()[0])
-df.isnull().sum()
-df.dtypes
-sns.scatterplot(df['Row ID'],df['Sales'])
-states=df.loc[:,["State","Sales"]]
-states=states.groupby(by=["State"]).sum().sort_values(by="Sales")
-plt.figure(figsize=(17,7))
-sns.barplot(x=states.index,y="Sales",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("STATES")
-plt.ylabel=("SALES")
+data=pd.read_csv("SuperStore.csv")
+data
+
+data.head()
+
+data.info()
+
+data.describe()
+
+data.dtypes
+
+data.isnull().sum()
+
+data['Postal Code']=data['Postal Code'].fillna(data['Postal Code'].mode()[0])
+data.isnull().sum()
+
+sns.scatterplot(x=data['Country'],y=data['Sales'],data=data)
+
+states=data.loc[:,["Region","Sales"]] 
+states=states.groupby(by=["Region"]).sum().sort_values(by="Sales") 
+plt.figure(figsize=(17,7)) 
+sns.barplot(x=states.index,y="Sales",data=states) 
+plt.xticks(rotation = 90) 
+plt.xlabel=("REGION")
+plt.ylabel=("SALES") 
 plt.show()
-states=df.loc[:,["State","Row ID"]]
-states=states.groupby(by=["State"]).sum().sort_values(by="Row ID")
-plt.figure(figsize=(17,7))
-sns.barplot(x=states.index,y="Row ID",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("STATES")
-plt.ylabel=("ROW ID")
+
+states=data.loc[:,["State","Sales"]] 
+states=states.groupby(by=["State"]).sum().sort_values(by="Sales") 
+plt.figure(figsize=(17,7)) 
+sns.barplot(x=states.index,y="Sales",data=states) 
+plt.xticks(rotation = 90) 
+plt.xlabel=("SALES") 
+plt.ylabel=("STATES") 
 plt.show()
-states=df.loc[:,["Segment","Row ID"]]
-states=states.groupby(by=["Segment"]).sum().sort_values(by="Row ID")
-sns.barplot(x=states.index,y="Row ID",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("SEGMENT")
-plt.ylabel=("ROW ID")
+
+states=data.loc[:,["Category","Sales"]] 
+states=states.groupby(by=["Category"]).sum().sort_values(by="Sales") 
+plt.figure(figsize=(10,7)) 
+sns.barplot(x=states.index,y="Sales",data=states) 
+plt.xticks(rotation = 90) 
+plt.xlabel=("CATEGORY") 
+plt.ylabel=("SALES") 
 plt.show()
-sns.barplot(df['Sales'],df['Ship Mode'],hue=df['Region'])
-df.corr()
-sns.heatmap(df.corr(),annot=True)
+
+sns.barplot(data['Postal Code'],data['Ship Mode'],hue=data['Region'])
+
+data.corr()
+
+sns.heatmap(data.corr(),annot=True)
 ```
 OUTPUT:
+
+![image](https://user-images.githubusercontent.com/119390134/231046966-0448c189-5bc5-4f02-8611-45c54c289d48.png)
+
+
