@@ -1,6 +1,6 @@
 # Ex-04-Multivariate-Analysis
-Ex-04-Multivariate-Analysis
-AIM
+
+AIM:
 
 To perform Multivariate EDA on the given data set.
 
@@ -99,5 +99,5 @@ sns.heatmap(data.corr(),annot=True)
 OUTPUT:
 
 ![image](https://user-images.githubusercontent.com/119390134/231046966-0448c189-5bc5-4f02-8611-45c54c289d48.png)
-
+![4 1](https://user-images.githubusercontent.com/119390134/231050250-e62ec86f-0a95-413f-a38d-eff53911e40a.png)
 
